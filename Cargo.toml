@@ -6,5 +6,6 @@ edition = "2018"
 
 [dependencies]
 dotenv = "0.15.0"
+jemallocator-global = "0.3.2"
 tokio = { version = "0.2.21", features = ["full"] }
 warp = "0.2.3"
