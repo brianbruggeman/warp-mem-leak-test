@@ -26,7 +26,7 @@ if [[ -f "$FILE" ]]; then
   rm -f $FILE
 fi
 
-$(cargo build --release 2>/dev/null) 2>/dev/null
+cargo build --release
 cargo run --release 2>/dev/null &
 export pid=`echo $!`
 echo "Server running on PID: $pid"
@@ -52,7 +52,6 @@ for cnt in `seq 1 ${TRIES}`; do (
 		&& echo "===============================" \
 	) || break
 done
-{kill $pid } 2>/dev/null
-$(lsof -nP -iTCP:3030 | grep LISTEN | awk {'print $2'} | xargs kill -9) 2>/dev/null
 rm -f $FILE > /dev/null
+$(lsof -nP -iTCP:3030 | grep LISTEN | awk {'print $2'} | xargs kill -9 2>/dev/null ) 2>/dev/null
 
