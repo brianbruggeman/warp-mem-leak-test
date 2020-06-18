@@ -1,0 +1,10 @@
+[package]
+name = "warp-test"
+version = "0.1.0"
+authors = ["Brian Bruggeman <bbruggeman@samba.tv>"]
+edition = "2018"
+
+[dependencies]
+dotenv = "0.15.0"
+tokio = { version = "0.2.21", features = ["full"] }
+warp = "0.2.3"
